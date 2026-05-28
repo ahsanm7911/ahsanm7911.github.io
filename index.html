@@ -19,7 +19,9 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
   <script>
     tailwind.config = {
       theme: {
@@ -253,6 +255,56 @@
       background: #fff; border: 1px solid var(--border);
       border-radius: 20px; padding: 32px;
       display: flex; flex-direction: column; align-items: center;
+    }
+
+    .custom-trustpilot-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+     .custom-trustpilot-widget {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      border: 2px solid #00b67a;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2c2c2c;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 182, 122, 0.1);
+    }
+
+    .custom-trustpilot-widget:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 182, 122, 0.15);
+      background-color: #f8fffb;
+    }
+
+    .custom-trustpilot-widget .custom-star {
+      color: #00b67a;
+      font-size: 18px;
+      line-height: 1;
+      margin-top: -1px;
+    }
+
+    .custom-trustpilot-widget .custom-trustpilot {
+      font-weight: 700;
+      color: #000000;
+    }
+
+    /* Optional: Make it responsive */
+    @media (max-width: 480px) {
+      .cusom-trustpilot-widget {
+        font-size: 14px;
+        padding: 9px 18px;
+      }
     }
 
     /* ── FOOTER ── */
@@ -689,10 +741,12 @@
 <section id="reviews" style="background:linear-gradient(180deg,#f8faff 0%,#f0f4ff 100%);padding:96px 24px;">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <div class="section-tag">Trustpilot</div>
+      <p class="section-tag">trustpilot</p> 
       <h2 class="section-title">What Students Say</h2>
       <p style="color:var(--text-muted);margin-top:12px;">Verified reviews from real students and clients.</p>
     </div>
+
+    
 
     <div class="tp-widget-wrapper reveal">
       <!-- 
@@ -707,15 +761,19 @@
       -->
 
       <!-- Trustpilot Widget Placeholder -->
-      <div style="text-align:center;padding:16px 0 8px;">
-        <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" onerror="this.style.display='none'" alt="Trustpilot" style="height:32px;margin:0 auto 24px;filter:invert(1) sepia(1) saturate(2) hue-rotate(180deg) brightness(.5);" />
-        <div style="display:flex;justify-content:center;gap:4px;margin-bottom:8px;">
-          <span style="font-size:1.8rem;">★★★★★</span>
-        </div>
-        <p style="font-weight:700;font-size:1.15rem;color:#0f172a;">Excellent</p>
-        <p style="color:var(--text-muted);font-size:.88rem;margin-top:4px;">Based on 47 reviews on Trustpilot</p>
-      </div>
+      <!-- <div style="text-align:center;padding:16px 0 8px;"> -->
+      <!--   <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" onerror="this.style.display='none'" alt="Trustpilot" style="height:32px;margin:0 auto 24px;filter:invert(1) sepia(1) saturate(2) hue-rotate(180deg) brightness(.5);" /> -->
+      <!--   <div style="display:flex;justify-content:center;gap:4px;margin-bottom:8px;"> -->
+      <!--     <span style="font-size:1.8rem;">★★★★★</span> -->
+      <!--   </div> -->
+      <!--   <p style="font-weight:700;font-size:1.15rem;color:#0f172a;">Excellent</p> -->
+      <!--   <p style="color:var(--text-muted);font-size:.88rem;margin-top:4px;">Based on 47 reviews on Trustpilot</p> -->
+      <!-- </div> -->
+      <!---->
 
+      <!-- TrustBox widget - Review Collector -->
+      
+      <!-- End TrustBox widget -->
       <!-- Manual testimonials (always visible as social proof) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
         <div style="background:#f8faff;border:1px solid var(--border);border-radius:16px;padding:22px;">
@@ -754,7 +812,16 @@
       </div>
     </div>
   </div>
+  
+  <div class="custom-trustpilot-container">
+    <a href="https://www.trustpilot.com/review/ahsanm7911.github.io" class="custom-trustpilot-widget">
+      <span>Review us on</span>
+      <span class="custom-star" style="font-size:22px;margin-bottom:6px">★</span>
+      <span class="custom-trustpilot">Trustpilot</span>
+    </a>
+  </div>
 </section>
+
 
 <!-- ════════════════════════════════════════
      CONTACT FORM
