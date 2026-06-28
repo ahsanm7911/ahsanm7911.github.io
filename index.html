@@ -3,621 +3,709 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muhammad Ahsan — Software Developer & CS Tutor</title>
-  <meta name="description" content="Software Developer & Computer Science Tutor. Building elegant software and mentoring the next generation of developers."/>
+  <title>Muhammad Ahsan — Custom Software for Small Businesses</title>
+  <meta name="description" content="I design and build focused software tools for non-technical business owners — clear process, plain language, and software that actually gets used."/>
 
-  <!-- Fonts -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Muhammad Ahsan — Custom Software for Small Businesses"/>
+  <meta property="og:description" content="Personalized software for non-technical business owners. Clear process, plain language, software that actually gets used."/>
+  <meta property="og:image" content="https://ahsanm7911.github.io/image.webp"/>
+  <meta property="og:url" content="https://ahsanm7911.github.io"/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Muhammad Ahsan — Custom Software for Small Businesses"/>
+  <meta name="twitter:description" content="Personalized software for non-technical business owners. Clear process, plain language, software that actually gets used."/>
+  <meta name="twitter:image" content="https://ahsanm7911.github.io/image.webp"/>
+
+  <!-- Fonts: single weight range of Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <!-- TrustBox script -->
-  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-  <!-- End TrustBox script -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['DM Serif Display', 'Georgia', 'serif'],
-            sans: ['DM Sans', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            navy: {
-              50: '#f0f4ff',
-              100: '#e0e9ff',
-              200: '#c7d6fe',
-              300: '#a5b8fc',
-              400: '#8093f8',
-              500: '#6171f1',
-              600: '#4a51e5',
-              700: '#3d41ca',
-              800: '#3338a4',
-              900: '#2d3282',
-              950: '#1a1d4d',
-            },
-            slate: {
-              950: '#0a0e1a',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
-    :root {
-      --navy-950: #1a1d4d;
-      --navy-800: #3338a4;
-      --navy-600: #4a51e5;
-      --navy-400: #8093f8;
-      --accent: #38bdf8; /* sky blue — trust + clarity */
-      --accent-green: #34d399; /* emerald — availability */
-      --surface: #f8faff;
-      --text-primary: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --white:           #FFFFFF;
+      --gray-bg:         #F4F5F8;
+      --text-primary:    #14171F;
+      --text-secondary:  #666b78;
+      --text-faint:      #9a9da6;
+      --accent:          #34409E;
+      --accent-tint:     #E8EAF6;
+      --border:          #e4e6eb;
+      --radius-badge:    999px;
+      --radius-btn:      8px;
+      --radius-card:     12px;
+      --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--surface);
+      font-family: var(--font);
+      background: var(--white);
       color: var(--text-primary);
       overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-btn);
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover  { opacity: 0.88; }
+    .btn-primary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-btn);
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-outline:hover  { background: var(--accent-tint); }
+    .btn-outline:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--accent);
+      border: 2px solid #fff;
+      border-radius: var(--radius-btn);
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-white:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(52, 64, 158, 0.2);
+      border-radius: var(--radius-badge);
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* ── SECTIONS ── */
+    .section     { padding: 80px 0; }
+    .section-alt { background: var(--gray-bg); }
+
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 12px;
+      line-height: 1.2;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      margin-top: 10px;
+      max-width: 520px;
+      font-size: 0.95rem;
     }
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(248, 250, 255, 0.85);
-      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      transition: box-shadow .3s;
     }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(26,29,77,.08); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .nav-logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover        { color: var(--accent); }
+    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .nav-hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0 16px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 11px 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-menu .btn-primary { margin-top: 10px; justify-content: center; }
 
     /* ── HERO ── */
-    .hero-bg {
-      background: linear-gradient(135deg, #1a1d4d 0%, #3338a4 50%, #1e3a8a 100%);
-      position: relative;
-      overflow: hidden;
+    #hero { padding: 88px 0 72px; }
+    .hero-badge  { margin-bottom: 20px; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.14;
+      max-width: 680px;
+      margin-bottom: 18px;
     }
-    .hero-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    .hero-subhead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 32px;
     }
-    .hero-blob {
-      position: absolute; border-radius: 50%; filter: blur(80px); opacity: .15;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-trust {
+      font-size: 0.85rem;
+      color: var(--text-faint);
     }
 
-    /* ── AVATAR ── */
-    .avatar-ring {
-      width: 220px; height: 220px;
+    /* ── HOW IT WORKS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .step { display: flex; flex-direction: column; gap: 14px; }
+    .step-num {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8, #6171f1);
-      padding: 3px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
-    .avatar-inner {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      background: #2d3282;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 3rem; color: white; letter-spacing: -1px;
-    }
-    .avatar-inner img {
-      border-radius: 50%;
-    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+    .step p  { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
-    /* ── AVAILABILITY BADGE ── */
-    .avail-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(52, 211, 153, .12);
-      border: 1px solid rgba(52, 211, 153, .35);
-      color: #059669;
-      padding: 6px 16px; border-radius: 999px;
-      font-size: .8rem; font-weight: 600; letter-spacing: .04em;
+    /* ── WHO THIS IS FOR ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
     }
-    .avail-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #34d399;
-      animation: pulse-dot 2s ease-in-out infinite;
+    .fit-col h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 18px;
     }
-    @keyframes pulse-dot {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.6; transform:scale(1.4); }
+    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .fit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text-primary);
     }
+    .fit-list.not-fit li { color: var(--text-secondary); }
+    .icon-check { flex-shrink: 0; margin-top: 1px; color: var(--accent); }
+    .icon-x     { flex-shrink: 0; margin-top: 1px; color: var(--text-faint); }
 
-    /* ── STATS ── */
-    .stat-card {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      padding: 20px 28px;
-      text-align: center;
-      backdrop-filter: blur(10px);
+    /* ── SELECTED WORK ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem; color: #fff;
+    .work-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .stat-label { font-size: .78rem; color: rgba(255,255,255,.6); letter-spacing: .06em; text-transform: uppercase; margin-top: 4px; }
-
-    /* ── SECTION TITLES ── */
-    .section-tag {
+    .work-tag {
       display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .72rem; font-weight: 500;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--navy-600);
-      background: rgba(74,81,229,.08);
-      padding: 5px 14px; border-radius: 999px;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border-radius: var(--radius-btn);
+      padding: 3px 10px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+    .work-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .work-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .work-card-footer { margin-top: 6px; }
+    .work-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .work-link:hover { text-decoration: underline; }
+    .work-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+    .work-link-muted {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-faint);
+    }
+
+    /* ── VIDEO TESTIMONIALS ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .video-card {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .video-thumb {
+      position: relative;
+      background: var(--gray-bg);
+      aspect-ratio: 9 / 16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* When a real video or iframe is dropped in, it takes over the thumb area */
+    .video-thumb video,
+    .video-thumb iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
+    .play-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    /* Hide overlay while playing; reveal on hover so the user can pause */
+    .video-card.playing .play-btn { opacity: 0; }
+    .video-card.playing:hover .play-btn { opacity: 1; }
+    .video-caption { padding: 14px 16px; background: var(--white); }
+    .video-caption strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+    .video-caption span  { font-size: 0.8rem; color: var(--text-faint); }
+
+    /* ── FINAL CTA ── */
+    #final-cta {
+      background: var(--accent);
+      padding: 80px 0;
+      text-align: center;
+      color: #fff;
+    }
+    #final-cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
       margin-bottom: 14px;
     }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: #0f172a; line-height: 1.15;
+    #final-cta p {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
     }
 
-    /* ── PROJECT CARDS ── */
-    .project-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
+    /* ── BOOKING ── */
+    #booking { padding: 80px 0; }
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+      border-radius: var(--radius-card);
       overflow: hidden;
-      transition: transform .25s, box-shadow .25s;
+      border: 1px solid var(--border);
     }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(26,29,77,.12);
+    .calendly-fallback {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
-    .project-img {
-      height: 180px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .85rem; color: rgba(255,255,255,.7);
-      letter-spacing: .05em;
-    }
-    .project-tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .68rem; font-weight: 500;
-      padding: 3px 10px; border-radius: 999px;
-      margin-right: 4px; margin-bottom: 4px;
-    }
-    .tag-py  { background: #fef3c7; color: #92400e; }
-    .tag-fa  { background: #ede9fe; color: #5b21b6; }
-    .tag-dj  { background: #d1fae5; color: #065f46; }
-    .tag-js  { background: #fefce8; color: #713f12; }
-    .tag-ai  { background: #dbeafe; color: #1e40af; }
-    .tag-sql { background: #fce7f3; color: #831843; }
-
-    /* ── SKILLS BAR ── */
-    .skill-bar-track {
-      background: #e2e8f0; border-radius: 999px; height: 6px; overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%; border-radius: 999px;
-      background: linear-gradient(90deg, #4a51e5, #38bdf8);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 1s cubic-bezier(.4,0,.2,1);
-    }
-    .skill-bar-fill.animated { transform: scaleX(1); }
-
-    /* ── FORM ── */
-    .form-field {
-      width: 100%;
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 13px 16px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: .95rem;
-      color: var(--text-primary);
-      background: #fff;
-      transition: border-color .2s, box-shadow .2s;
-      outline: none;
-      resize: none;
-    }
-    .form-field:focus {
-      border-color: var(--navy-600);
-      box-shadow: 0 0 0 3px rgba(74,81,229,.1);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #1a1d4d, #4a51e5);
-      color: #fff; border: none; border-radius: 12px;
-      padding: 14px 32px; font-size: 1rem; font-weight: 600;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      transition: opacity .2s, transform .15s;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
-    .btn-primary:active { transform: translateY(0); }
-
-    /* ── CALENDLY ── */
-    .calendly-inline-widget { min-width: 320px; height: 680px; }
-
-    /* ── TRUSTPILOT ── */
-    .tp-widget-wrapper {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 20px; padding: 32px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-
-    .custom-trustpilot-container {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      padding: 20px 0;
-    }
-
-     .custom-trustpilot-widget {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      background-color: #ffffff;
-      border: 2px solid #00b67a;
-      border-radius: 50px;
-      text-decoration: none;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: #2c2c2c;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0, 182, 122, 0.1);
-    }
-
-    .custom-trustpilot-widget:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 182, 122, 0.15);
-      background-color: #f8fffb;
-    }
-
-    .custom-trustpilot-widget .custom-star {
-      color: #00b67a;
-      font-size: 18px;
-      line-height: 1;
-      margin-top: -1px;
-    }
-
-    .custom-trustpilot-widget .custom-trustpilot {
-      font-weight: 700;
-      color: #000000;
-    }
-
-    /* Optional: Make it responsive */
-    @media (max-width: 480px) {
-      .cusom-trustpilot-widget {
-        font-size: 14px;
-        padding: 9px 18px;
-      }
-    }
+    .calendly-fallback a { color: var(--accent); font-weight: 600; }
+    .calendly-fallback a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy-950);
-      color: rgba(255,255,255,.5);
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
     }
-
-    /* ── REVEAL ANIMATION ── */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── NAV LINK ── */
-    .nav-link {
-      color: var(--text-muted); font-size: .9rem; font-weight: 500;
-      text-decoration: none; padding: 6px 2px;
-      border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s;
+    .footer-name  { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+    .footer-email { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+    .footer-email a { color: var(--accent); }
+    .footer-email a:hover { text-decoration: underline; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gray-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
     }
-    .nav-link:hover { color: var(--navy-600); border-color: var(--navy-600); }
+    .footer-socials a:hover { background: var(--accent-tint); color: var(--accent); }
+    .footer-socials a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .footer-copy { font-size: 0.8rem; color: var(--text-faint); }
 
-    /* ── TOAST ── */
-    .toast {
-      position: fixed; bottom: 32px; right: 32px; z-index: 999;
-      background: #0f172a; color: #fff;
-      padding: 14px 24px; border-radius: 14px;
-      font-size: .9rem; font-weight: 500;
-      display: flex; align-items: center; gap: 10px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.25);
-      transform: translateY(80px); opacity: 0;
-      transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .35s;
-    }
-    .toast.show { transform: none; opacity: 1; }
-    .toast.success { border-left: 4px solid #34d399; }
-    .toast.error   { border-left: 4px solid #f87171; }
-
-    /* counter animation */
-    @keyframes countUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
-
-    /* mobile nav */
-    #mobile-menu { display: none; }
-    #mobile-menu.open { display: flex; }
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero-stats { flex-direction: column; }
+      .section { padding: 56px 0; }
+      #hero    { padding: 56px 0 48px; }
+
+      .steps-grid { grid-template-columns: 1fr; gap: 28px; }
+      .fit-grid   { grid-template-columns: 1fr; gap: 32px; }
+      .work-grid  { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+
+      .nav-links    { display: none; }
+      .nav-cta-desk { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-socials { justify-content: center; }
+
       .calendly-inline-widget { height: 580px; }
+    }
+
+    @media (min-width: 641px) {
+      .mobile-menu   { display: none !important; }
+      .nav-hamburger { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════════
      NAVIGATION
-════════════════════════════════════════ -->
-<nav id="navbar">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#hero" class="font-serif text-xl text-navy-950" style="font-family:'DM Serif Display',serif;color:#1a1d4d;">
-      Muhammad Ahsan
-    </a>
+══════════════════════════════════════ -->
+<nav aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Muhammad Ahsan</a>
 
-    <!-- Desktop Links -->
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#skills"   class="nav-link">Skills</a>
-      <a href="#booking"  class="nav-link">Book a Session</a>
-      <a href="#reviews"  class="nav-link">Reviews</a>
-      <a href="#contact"  class="nav-link">Contact</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#booking">Contact</a></li>
+      </ul>
+
+      <a href="#booking" class="btn-primary nav-cta-desk" style="padding:10px 20px;font-size:0.88rem;">
+        Book a call
+      </a>
+
+      <button class="nav-hamburger" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
 
-    <!-- CTA -->
-    <a href="#booking" class="hidden md:inline-flex btn-primary" style="padding:10px 22px;font-size:.88rem;">
-      Book Session
-    </a>
-
-    <!-- Mobile hamburger -->
-    <button id="menu-toggle" class="md:hidden p-2 rounded-lg" style="color:#1a1d4d;">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="flex-col gap-1 px-6 pb-4 md:hidden">
-    <a href="#projects" class="nav-link block py-2">Projects</a>
-    <a href="#skills"   class="nav-link block py-2">Skills</a>
-    <a href="#booking"  class="nav-link block py-2">Book a Session</a>
-    <a href="#reviews"  class="nav-link block py-2">Reviews</a>
-    <a href="#contact"  class="nav-link block py-2">Contact</a>
-    <a href="#booking"  class="btn-primary mt-3 justify-center" style="padding:11px 22px;">Book Session</a>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#booking">Contact</a>
+      <a href="#booking" class="btn-primary">Book a call</a>
+    </div>
   </div>
 </nav>
 
-<!-- ════════════════════════════════════════
-     HERO — PERSONAL INFO
-════════════════════════════════════════ -->
-<section id="hero" class="hero-bg pt-32 pb-20 px-6 relative" style="min-height:100vh;display:flex;align-items:center;">
-  <!-- Decorative blobs -->
-  <div class="hero-blob" style="width:500px;height:500px;background:#38bdf8;top:-200px;right:-150px;"></div>
-  <div class="hero-blob" style="width:350px;height:350px;background:#6171f1;bottom:-100px;left:-100px;"></div>
-
-  <div class="max-w-6xl mx-auto w-full relative z-10">
-    <!-- Availability badge -->
-    <div class="avail-badge mb-8">
-      <span class="avail-dot"></span>
-      Open to new students &amp; projects
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="badge">For non-technical business owners</span>
     </div>
+    <h1>Custom software, without the tech overwhelm</h1>
+    <p class="hero-subhead">
+      I design and build focused tools for non-technical teams — clear process, plain language, and software that actually gets used.
+    </p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">Book a free 20-min call</a>
+      <a href="#process" class="btn-outline">See how it works</a>
+    </div>
+    <p class="hero-trust">
+      Trusted by small businesses who need software built around them, not the other way around.
+    </p>
+  </div>
+</section>
 
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 mb-12">
-      <!-- Avatar -->
-      <div class="avatar-ring" style="flex-shrink:0;">
-        <div class="avatar-inner">
-          <img src="./image.webp" alt="a guy wearing a black coat">
-        </div>
+<!-- ══════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════ -->
+<section id="process" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Process</span>
+      <h2>How it works</h2>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3>Tell me the problem</h3>
+        <p>A short call to understand the real bottleneck.</p>
       </div>
 
-      <!-- Text -->
-      <div>
-        <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,6vw,4rem);color:#fff;line-height:1.1;margin-bottom:10px;">
-          Muhammad Ahsan 
-        </h1>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:.9rem;color:#38bdf8;letter-spacing:.06em;margin-bottom:16px;">
-          Software Developer &nbsp;/&nbsp; CS Tutor
-        </p>
-        <p style="color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.7;max-width:520px;">
-          I build robust backends with Python &amp; FastAPI, craft full-stack applications, and mentor students from first principles to production-ready code. 5+ years turning complex problems into elegant solutions.
-        </p>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>I design and build it</h3>
+        <p>Regular check-ins, zero jargon.</p>
+      </div>
 
-        <!-- CTAs -->
-        <div class="flex flex-wrap gap-4 mt-8">
-          <a href="#projects" class="btn-primary" style="background:white;color:#1a1d4d;">
-            View Projects
+      <div class="step">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>You start using it</h3>
+        <p>Trained, supported, ready to go.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WHO THIS IS FOR
+══════════════════════════════════════ -->
+<section id="fit" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Fit</span>
+      <h2>Who this is for</h2>
+    </div>
+    <div class="fit-grid">
+
+      <div class="fit-col">
+        <h3>A good fit if you...</h3>
+        <ul class="fit-list">
+          <li>
+            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>Are losing hours to spreadsheets or tools that don't fit your workflow</span>
+          </li>
+          <li>
+            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>Want one person who understands the business, not a ticket queue</span>
+          </li>
+          <li>
+            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>Want software built around your workflow, not the other way around</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fit-col">
+        <h3>Not a fit if you...</h3>
+        <ul class="fit-list not-fit">
+          <li>
+            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            <span>Need an enterprise-scale platform or a full team</span>
+          </li>
+          <li>
+            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            <span>Are shopping for the cheapest marketplace freelancer</span>
+          </li>
+          <li>
+            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            <span>Off-the-shelf software already solves the problem well</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SELECTED WORK
+══════════════════════════════════════ -->
+<section id="work" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Work</span>
+      <h2>Selected work</h2>
+      <p>Outcome-first — what changed for the business, not which framework was used.</p>
+    </div>
+    <div class="work-grid">
+
+      <!-- HomePlate -->
+      <div class="work-card">
+        <span class="work-tag">Food and marketplace</span>
+        <h3>HomePlate</h3>
+        <p>A marketplace where home chefs run their own food business — bidding, payments, and delivery in one app.</p>
+        <div class="work-card-footer">
+          <a href="https://github.com/ahsanm7911/homeplate" class="work-link" target="_blank" rel="noopener noreferrer">
+            View on GitHub →
           </a>
-          <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.85);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);border-radius:12px;padding:13px 26px;transition:border-color .2s;">
-            Get in Touch
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="hero-stats flex flex-wrap gap-4">
-      <div class="stat-card">
-        <div class="stat-num" id="stat-students">0</div>
-        <div class="stat-label">Students Mentored</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-projects">0</div>
-        <div class="stat-label">Projects Shipped</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-years">0</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-rating">0</div>
-        <div class="stat-label">Avg. Student Rating</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════
-     PROJECTS
-════════════════════════════════════════ -->
-<section id="projects" class="py-24 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-14 reveal">
-      <div class="section-tag">Portfolio</div>
-      <h2 class="section-title">Featured Projects</h2>
-      <p style="color:var(--text-muted);margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">
-        Real-world software built with clean architecture and scalable design.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Card 1 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#1a1d4d,#4a51e5);">
-          <span>Django + React-Native</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">HomePlate</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            Food delivery marketplace that connects customers with homemade chefs. Customers post food orders with a budget, and chefs compete
-            for those orders through a live bidding system. Once a bid is accepted, the chef prepares and delivers the food, gets paid via an in-app wallet,
-             and the customer can leave a review.
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-py">Python (Django)</span>
-            <span class="project-tag tag-sql">Redis Channels</span>
-            <span class="project-tag tag-fa">React-native/Expo</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/ahsanm7911/homeplate" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo →</a>
-            <a href="https://github.com/ahsanm7911/homeplate" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub</a>
-          </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#065f46,#34d399);">
-          <span>Streamlit</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">MEP Test-Result ML Pipeline</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            A two-page Streamlit application that parses proprietary .mep.txt test-result files, prepares a clean ML-ready 
-            dataset, trains and compares classification models, and exports production-ready inference artefacts.
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-dj">Python</span>
-            <span class="project-tag tag-js">Streamlit</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo on Demand →</a>
-            <a href="#" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub (Private Repo)</a>
-          </div>
+      <!-- Attendance Manager -->
+      <div class="work-card">
+        <span class="work-tag">Tutoring and education</span>
+        <h3>Attendance manager</h3>
+        <p>Replaced hours of weekly spreadsheet attendance tracking with a few clicks.</p>
+        <div class="work-card-footer">
+          <span class="work-link-muted">Case study coming soon</span>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#1e3a8a,#38bdf8);">
-          <span>Python + customtkinter</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">Student Attendance Manager</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            A modern, easy-to-use desktop Attendance tracking system for tutors. 
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-py">Python</span>
-            <span class="project-tag tag-ai">customtkinter</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo on Demand →</a>
-            <a href="#" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub (Private Repo)</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#7c3aed,#c084fc);">
-          <span>Real-time App</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">Collaborative Whiteboard</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            Real-time collaborative drawing tool with WebSockets, room management, and persistent canvas state via Redis.
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-fa">FastAPI</span>
-            <span class="project-tag tag-js">JavaScript</span>
-            <span class="project-tag tag-ai">WebSockets</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo →</a>
-            <a href="#" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#b45309,#fbbf24);">
-          <span>Data Pipeline</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">Financial Data Dashboard</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            ETL pipeline ingesting stock market data, processing with Pandas, and surfacing insights via an interactive Plotly dashboard.
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-py">Python</span>
-            <span class="project-tag tag-sql">PostgreSQL</span>
-            <span class="project-tag tag-ai">Pandas</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo →</a>
-            <a href="#" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="project-card reveal">
-        <div class="project-img" style="background:linear-gradient(135deg,#0e7490,#22d3ee);">
-          <span>CS Tutoring</span>
-        </div>
-        <div style="padding:22px;">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:8px;">DS&A Visualizer</h3>
-          <p style="color:var(--text-muted);font-size:.88rem;line-height:1.6;margin-bottom:14px;">
-            Interactive visualizer for sorting algorithms, graph traversals, and data structures — built for my tutoring students.
-          </p>
-          <div class="mb-4">
-            <span class="project-tag tag-js">JavaScript</span>
-            <span class="project-tag tag-ai">Canvas API</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#" style="font-size:.85rem;font-weight:600;color:#4a51e5;text-decoration:none;">Live Demo →</a>
-            <a href="#" style="font-size:.85rem;font-weight:600;color:var(--text-muted);text-decoration:none;">GitHub</a>
-          </div>
+      <!-- Financial Dashboard -->
+      <div class="work-card">
+        <span class="work-tag">Data and reporting</span>
+        <h3>Financial dashboard</h3>
+        <p>Turned raw stock data into a dashboard non-finance staff could actually read.</p>
+        <div class="work-card-footer">
+          <span class="work-link-muted">Case study coming soon</span>
         </div>
       </div>
 
@@ -625,495 +713,183 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     SKILLS
-════════════════════════════════════════ -->
-<section id="skills" style="background:linear-gradient(180deg,#f0f4ff 0%, #f8faff 100%);padding:96px 24px;">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-14 reveal">
-      <div class="section-tag">Expertise</div>
-      <h2 class="section-title">Skills &amp; Technologies</h2>
+<!-- ══════════════════════════════════════
+     VIDEO TESTIMONIALS
+══════════════════════════════════════ -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Hear from clients</h2>
+      <p>Short clips, real businesses.</p>
     </div>
+    <div class="video-grid">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-7">
-      <!-- Skill items -->
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">Python</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">95%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".95"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">FastAPI &amp; Django</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">92%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".92"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">PostgreSQL / Databases</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">88%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".88"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">JavaScript / HTML / CSS</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">80%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".80"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">Docker / DevOps</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">78%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".78"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">Data Structures &amp; Algorithms</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">90%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".90"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">Machine Learning / AI</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">72%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".72"></div></div>
-      </div>
-      <div class="reveal">
-        <div class="flex justify-between mb-2">
-          <span style="font-weight:600;font-size:.92rem;">System Design</span>
-          <span style="color:var(--text-muted);font-size:.85rem;">85%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width=".85"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════
-     BOOKING — CALENDLY
-════════════════════════════════════════ -->
-<section id="booking" class="py-24 px-6">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-12 reveal">
-      <div class="section-tag">Calendly</div>
-      <h2 class="section-title">Book a Session</h2>
-      <p style="color:var(--text-muted);margin-top:12px;max-width:460px;margin-left:auto;margin-right:auto;">
-        Schedule a 1-on-1 tutoring session, code review, or project consultation directly in your calendar.
-      </p>
-    </div>
-
-    <div class="reveal" style="background:#fff;border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(26,29,77,.08);">
-      <!-- 
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        CALENDLY INTEGRATION
-        Replace YOUR_CALENDLY_USERNAME below with your real Calendly username.
-        Example: https://calendly.com/johndoe
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      <!--
+        VIDEO CARD 1 — PLACEHOLDER
+        To add a real video, replace the .video-thumb div contents with one of:
+          Self-hosted: <video src="client1.mp4" controls poster="client1-thumb.jpg"></video>
+          YouTube:     <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Client name testimonial"></iframe>
+        The .video-thumb wrapper and .video-caption below can stay as-is.
       -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/ahsanm7911" style="min-width:320px;height:680px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-      <!-- Fallback when not configured -->
-      <noscript>
-        <div style="padding:48px;text-align:center;">
-          <p style="color:var(--text-muted);">JavaScript is required to load the booking calendar.</p>
-          <a href="https://calendly.com/ahsanm7911" class="btn-primary" style="margin-top:16px;display:inline-flex;">Open Calendly</a>
-        </div>
-      </noscript>
-    </div>
-
-    <!-- Placeholder shown when Calendly username not yet set -->
-    <div id="calendly-placeholder" style="display:none;background:#f0f4ff;border:2px dashed #c7d6fe;border-radius:24px;padding:64px 32px;text-align:center;margin-top:0;">
-      <div style="font-size:2.5rem;margin-bottom:12px;">📅</div>
-      <p style="font-weight:600;color:#1a1d4d;font-size:1.05rem;">Calendly widget will appear here</p>
-      <p style="color:var(--text-muted);margin-top:6px;font-size:.88rem;">Replace <code style="background:#e0e9ff;padding:2px 6px;border-radius:4px;">YOUR_CALENDLY_USERNAME</code> in the HTML with your username.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════
-     REVIEWS — TRUSTPILOT
-════════════════════════════════════════ -->
-<section id="reviews" style="background:linear-gradient(180deg,#f8faff 0%,#f0f4ff 100%);padding:96px 24px;">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-14 reveal">
-      <p class="section-tag">trustpilot</p> 
-      <h2 class="section-title">What Students Say</h2>
-      <p style="color:var(--text-muted);margin-top:12px;">Verified reviews from real students and clients.</p>
-    </div>
-
-    
-
-    <div class="tp-widget-wrapper reveal">
-      <!-- 
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        TRUSTPILOT INTEGRATION
-        1. Log in to your Trustpilot Business account
-        2. Go to: Integrations → TrustBox Widgets
-        3. Copy your embed code and paste it below,
-           replacing this placeholder block.
-        Your domain must be registered on Trustpilot first.
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      -->
-
-      <!-- Trustpilot Widget Placeholder -->
-      <!-- <div style="text-align:center;padding:16px 0 8px;"> -->
-      <!--   <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" onerror="this.style.display='none'" alt="Trustpilot" style="height:32px;margin:0 auto 24px;filter:invert(1) sepia(1) saturate(2) hue-rotate(180deg) brightness(.5);" /> -->
-      <!--   <div style="display:flex;justify-content:center;gap:4px;margin-bottom:8px;"> -->
-      <!--     <span style="font-size:1.8rem;">★★★★★</span> -->
-      <!--   </div> -->
-      <!--   <p style="font-weight:700;font-size:1.15rem;color:#0f172a;">Excellent</p> -->
-      <!--   <p style="color:var(--text-muted);font-size:.88rem;margin-top:4px;">Based on 47 reviews on Trustpilot</p> -->
-      <!-- </div> -->
-      <!---->
-
-      <!-- TrustBox widget - Review Collector -->
-      
-      <!-- End TrustBox widget -->
-      <!-- Manual testimonials (always visible as social proof) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-        <div style="background:#f8faff;border:1px solid var(--border);border-radius:16px;padding:22px;">
-          <div style="color:#f59e0b;margin-bottom:10px;font-size:1.1rem;">★★★★★</div>
-          <p style="color:#374151;font-size:.9rem;line-height:1.65;margin-bottom:14px;">"Muhammad helped me go from zero Python knowledge to building my first API in 6 weeks. Incredibly patient and structured teaching style."</p>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#4a51e5,#38bdf8);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.85rem;">S</div>
-            <div>
-              <p style="font-weight:600;font-size:.88rem;">Sarah M.</p>
-              <p style="color:var(--text-muted);font-size:.78rem;">Bootcamp Student</p>
-            </div>
-          </div>
-        </div>
-        <div style="background:#f8faff;border:1px solid var(--border);border-radius:16px;padding:22px;">
-          <div style="color:#f59e0b;margin-bottom:10px;font-size:1.1rem;">★★★★★</div>
-          <p style="color:#374151;font-size:.9rem;line-height:1.65;margin-bottom:14px;">"The FastAPI project he built for us is clean, documented, and scalable. Exactly what we needed. Will hire again for the next sprint."</p>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#059669,#34d399);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.85rem;">J</div>
-            <div>
-              <p style="font-weight:600;font-size:.88rem;">James R.</p>
-              <p style="color:var(--text-muted);font-size:.78rem;">Startup Founder</p>
-            </div>
-          </div>
-        </div>
-        <div style="background:#f8faff;border:1px solid var(--border);border-radius:16px;padding:22px;">
-          <div style="color:#f59e0b;margin-bottom:10px;font-size:1.1rem;">★★★★★</div>
-          <p style="color:#374151;font-size:.9rem;line-height:1.65;margin-bottom:14px;">"Crushed my technical interview after 4 sessions on DS&A. Got the job! Muhammad knows exactly what interviewers look for."</p>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#c084fc);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.85rem;">P</div>
-            <div>
-              <p style="font-weight:600;font-size:.88rem;">Priya K.</p>
-              <p style="color:var(--text-muted);font-size:.78rem;">Software Engineer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="custom-trustpilot-container">
-    <a href="https://www.trustpilot.com/review/ahsanm7911.github.io" class="custom-trustpilot-widget">
-      <span>Review me on</span>
-      <span class="custom-star" style="font-size:22px;margin-bottom:6px">★</span>
-      <span class="custom-trustpilot">Trustpilot</span>
-    </a>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     CONTACT FORM
-════════════════════════════════════════ -->
-<section id="contact" class="py-24 px-6">
-  <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
-
-      <!-- Left -->
-      <div class="md:col-span-2 reveal">
-        <div class="section-tag">Let's Talk</div>
-        <h2 class="section-title" style="margin-bottom:20px;">Get in Touch</h2>
-        <p style="color:var(--text-muted);line-height:1.7;margin-bottom:32px;">
-          Have a project in mind, need tutoring, or just want to say hi? Fill in the form and I'll get back to you within 24 hours.
-        </p>
-
-        <!-- Contact info -->
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:42px;height:42px;background:#f0f4ff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" fill="none" stroke="#4a51e5" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
-            <div>
-              <p style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Email</p>
-              <p style="font-size:.92rem;font-weight:500;">ahsanm7911@gmail.com</p>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:42px;height:42px;background:#f0f4ff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" fill="none" stroke="#4a51e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24">
-                <!-- Outer circle -->
-                <path d="M20.5 3.5c-1.9-1.9-4.4-2.95-7-2.95C6.5 0.55 2 5.05 2 10.55c0 1.95.56 3.75 1.52 5.25L2 22l6.3-1.65c1.45.8 3.05 1.25 4.7 1.25 5.5 0 10-4.5 10-10 0-2.6-1.05-5.1-2.9-6.9z"/>
-                
-                <!-- Inner phone/chat icon (slightly scaled and centered) -->
-                <g transform="translate(4.5 5) scale(0.72)">
-                  <path d="M17.47 14.09c-.29-.14-1.73-.85-2-.95-.27-.1-.46-.15-.66.15-.2.3-.77.95-1.05 1.15-.27.2-.55.2-1.02 0-.47-.2-1.99-.73-3.8-2.35-.97-.82-1.63-1.82-1.83-2.13-.2-.3-.02-.46.15-.6.15-.14.33-.36.5-.54.16-.18.22-.3.33-.5.11-.2.06-.38-.03-.53-.09-.15-.66-1.58-.9-2.16-.24-.58-.49-.5-.66-.51-.18-.01-.38-.01-.58-.01-.2 0-.53.08-.81.38-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.06 2.88 1.21 3.08.15.2 2.1 3.2 5.1 4.48 2.3 1 3.2.8 3.8.6.6-.2 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.22-.58-.35z"/>
-                </g>
-              </svg>
-            </div>
-            <div>
-              <p style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Whatsapp</p>
-              <p style="font-size:.92rem;font-weight:500;">+44 7877418015</p>
-            </div>
-          </div>
-          <!-- <div style="display:flex;align-items:center;gap:12px;"> -->
-          <!--   <div style="width:42px;height:42px;background:#f0f4ff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"> -->
-          <!--     <svg width="18" height="18" fill="none" stroke="#4a51e5" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> -->
-          <!--   </div> -->
-          <!--   <div> -->
-          <!--     <p style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Location</p> -->
-          <!--     <p style="font-size:.92rem;font-weight:500;">Rawalpindi, Pakistan 🇵🇰</p> -->
-          <!--   </div> -->
-          <!-- </div> -->
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:42px;height:42px;background:#f0f4ff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" fill="none" stroke="#4a51e5" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <div>
-              <p style="font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Response Time</p>
-              <p style="font-size:.92rem;font-weight:500;">Within 24 hours</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <div class="md:col-span-3 reveal" style="background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px;box-shadow:0 8px 40px rgba(26,29,77,.06);">
-        <form id="contact-form">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-            <div>
-              <label style="display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:#374151;">Full Name *</label>
-              <input type="text" id="name" name="name" required class="form-field" placeholder="John Smith" />
-            </div>
-            <div>
-              <label style="display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:#374151;">Email *</label>
-              <input type="email" id="email" name="email" required class="form-field" placeholder="john@example.com" />
-            </div>
-          </div>
-
-          <div style="margin-bottom:20px;">
-            <label style="display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:#374151;">Subject *</label>
-            <select id="subject" name="subject" required class="form-field" style="appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22><path d=%22M6 9l6 6 6-6%22/></svg>');background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;">
-              <option value="" disabled selected>Select enquiry type…</option>
-              <option value="tutoring">1-on-1 Tutoring Session</option>
-              <option value="project">Project / Freelance Work</option>
-              <option value="mentorship">Long-term Mentorship</option>
-              <option value="code-review">Code Review</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div style="margin-bottom:20px;">
-            <label style="display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:#374151;">Message *</label>
-            <textarea id="message" name="message" required rows="5" class="form-field" placeholder="Tell me about your goals, background, or project..."></textarea>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
-            <input type="checkbox" id="consent" required style="width:16px;height:16px;accent-color:#4a51e5;" />
-            <label for="consent" style="font-size:.82rem;color:var(--text-muted);">I agree to be contacted regarding my enquiry.</label>
-          </div>
-
-          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="submit-btn">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            Send Message
+      <div class="video-card">
+        <div class="video-thumb">
+          <video src="./client_review001.mp4" poster="./client_review001_thumb.jpg" playsinline></video>
+          <button class="play-btn" aria-label="Play video">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </button>
-
-          <!-- 
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            EMAILJS SETUP GUIDE
-            1. Go to https://www.emailjs.com and sign up (free)
-            2. Add an Email Service (Gmail, Outlook, etc.)
-            3. Create an Email Template with these variables:
-               {{name}}, {{email}}, {{subject}}, {{message}}
-            4. Replace the placeholders below:
-               - YOUR_PUBLIC_KEY   → Account → API Keys
-               - YOUR_SERVICE_ID   → Email Services tab
-               - YOUR_TEMPLATE_ID  → Email Templates tab
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          -->
-        </form>
+        </div>
+        <div class="video-caption">
+          <strong>Donita Owen</strong>
+          <span>English Language Tutor</span>
+        </div>
       </div>
+
+      <!--
+        VIDEO CARD 2 — PLACEHOLDER
+        Replace .video-thumb div contents with a <video> or <iframe> as above.
+      -->
+      
+
+      <!--
+        VIDEO CARD 3 — PLACEHOLDER
+        Replace .video-thumb div contents with a <video> or <iframe> as above.
+      -->
+
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════ -->
+<section id="final-cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <h2 id="cta-heading">Ready to stop fighting your tools?</h2>
+    <p>A free 20-minute call. No pitch, just a conversation about what's slowing you down.</p>
+    <a href="#booking" class="btn-white">Book a free call</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     BOOKING — CALENDLY
+══════════════════════════════════════ -->
+<section id="booking" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Book a call</span>
+      <h2>Schedule a free 20-minute call</h2>
+      <p>No pitch, no jargon. A short conversation about your business and what's slowing you down.</p>
+    </div>
+
+    <!-- Calendly inline widget -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/ahsanm7911"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <!-- Shown only when JavaScript is disabled -->
+    <noscript>
+      <p class="calendly-fallback">
+        JavaScript is required to load the booking calendar.
+        <a href="https://calendly.com/ahsanm7911">Open Calendly directly →</a>
+      </p>
+    </noscript>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
      FOOTER
-════════════════════════════════════════ -->
-<footer style="background:#0a0e1a;padding:48px 24px;">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+
       <div>
-        <a href="#hero" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;text-decoration:none;">
-         Muhammad Ahsan 
-        </a>
-        <p style="color:rgba(255,255,255,.4);font-size:.82rem;margin-top:6px;">Software Developer &amp; CS Tutor</p>
+        <div class="footer-name">Muhammad Ahsan</div>
+        <div class="footer-email">
+          <a href="mailto:ahsanm7911@gmail.com">ahsanm7911@gmail.com</a>
+          &nbsp;·&nbsp;
+          <a href="tel:+447877418015" style="color:var(--text-secondary);">+44 7877 418015</a>
+        </div>
       </div>
 
-      <!-- Social links -->
-      <div style="display:flex;gap:16px;align-items:center;">
-        <a href="https://github.com/ahsanm7911" title="GitHub" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
-          <svg width="18" height="18" fill="rgba(255,255,255,.7)" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      <div class="footer-socials">
+        <a href="https://github.com/ahsanm7911" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Ahsan on GitHub">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
         </a>
-        <a href="https://www.linkedin.com/in/ahsanm7911/" title="LinkedIn" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
-          <svg width="18" height="18" fill="rgba(255,255,255,.7)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="https://www.linkedin.com/in/ahsanm7911/" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Ahsan on LinkedIn">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
         </a>
       </div>
 
-      <p style="color:rgba(255,255,255,.3);font-size:.8rem;">© 2026 Muhammad Ahsan. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Muhammad Ahsan. All rights reserved.</p>
+
     </div>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <span id="toast-icon">✓</span>
-  <span id="toast-msg">Message sent successfully!</span>
-</div>
-
-<!-- ════════════════════════════════════════
+<!-- ══════════════════════════════════════
      SCRIPTS
-════════════════════════════════════════ -->
+══════════════════════════════════════ -->
 <script>
-// ── EMAILJS INIT ──────────────────────────────
-// Replace YOUR_PUBLIC_KEY with your actual EmailJS public key
-emailjs.init("4ZGmKvpZhWS2aqYZh");
+  // Mobile menu toggle
+  const menuToggle  = document.getElementById('menu-toggle');
+  const mobileMenu  = document.getElementById('mobile-menu');
 
-// ── NAV scroll effect ─────────────────────────
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-});
-
-// ── Mobile menu ───────────────────────────────
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('open');
-});
-document.querySelectorAll('#mobile-menu a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-});
-
-// ── REVEAL on scroll ──────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-      revealObserver.unobserve(e.target);
-    }
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ── SKILL BARS ────────────────────────────────
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        bar.style.transform = `scaleX(${bar.dataset.width})`;
-        bar.classList.add('animated');
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Video play/pause with overlay button
+  const PLAY_ICON  = `<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`;
+  const PAUSE_ICON = `<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
+  document.querySelectorAll('.video-card').forEach(card => {
+    const video = card.querySelector('video');
+    const btn   = card.querySelector('.play-btn');
+    if (!video || !btn) return;
+
+    // Click overlay button → toggle play/pause
+    btn.addEventListener('click', () => {
+      // Pause any other playing videos first
+      document.querySelectorAll('.video-card video').forEach(v => {
+        if (v !== video && !v.paused) v.pause();
       });
-      barObserver.unobserve(e.target);
-    }
+      video.paused ? video.play() : video.pause();
+    });
+
+    // Click directly on video → same toggle
+    video.addEventListener('click', () => btn.click());
+
+    video.addEventListener('play', () => {
+      card.classList.add('playing');
+      btn.setAttribute('aria-label', 'Pause video');
+      btn.innerHTML = PAUSE_ICON;
+    });
+
+    video.addEventListener('pause', () => {
+      card.classList.remove('playing');
+      btn.setAttribute('aria-label', 'Play video');
+      btn.innerHTML = PLAY_ICON;
+    });
+
+    video.addEventListener('ended', () => {
+      card.classList.remove('playing');
+      btn.setAttribute('aria-label', 'Play video');
+      btn.innerHTML = PLAY_ICON;
+    });
   });
-}, { threshold: 0.3 });
-document.querySelectorAll('#skills').forEach(s => barObserver.observe(s));
-
-// ── COUNTER animation ─────────────────────────
-function animateCounter(el, target, suffix = '', duration = 1800) {
-  const isDecimal = target % 1 !== 0;
-  let start = 0;
-  const step = (timestamp) => {
-    if (!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const value = isDecimal
-      ? (eased * target).toFixed(1)
-      : Math.round(eased * target);
-    el.textContent = value + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-const statsObserver = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) {
-    animateCounter(document.getElementById('stat-students'), 85, '+');
-    animateCounter(document.getElementById('stat-projects'), 32, '+');
-    animateCounter(document.getElementById('stat-years'),    5,  '+');
-    animateCounter(document.getElementById('stat-rating'),   4.9, '★');
-    statsObserver.disconnect();
-  }
-}, { threshold: 0.4 });
-statsObserver.observe(document.querySelector('.hero-stats'));
-
-// ── TOAST helper ──────────────────────────────
-function showToast(msg, type = 'success') {
-  const toast = document.getElementById('toast');
-  document.getElementById('toast-msg').textContent = msg;
-  document.getElementById('toast-icon').textContent = type === 'success' ? '✓' : '✕';
-  toast.className = `toast ${type} show`;
-  setTimeout(() => toast.classList.remove('show'), 4000);
-}
-
-// ── EMAILJS CONFIG ────────────────────────────
-// Replace these four values with your real EmailJS credentials
-const EMAILJS_SERVICE_ID  = 'service_4wpyglr';   // e.g. 'service_abc123'
-const EMAILJS_ENQUIRY_TID = 'template_814x5di'; // Template 1: email to YOU
-const EMAILJS_REPLY_TID   = 'template_sqtjqrf'; // Template 2: auto-reply to visitor
-
-// ── CONTACT FORM ──────────────────────────────
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg> Sending…`;
-
-  // Shared params used by both templates
-  const params = {
-    name:    document.getElementById('name').value.trim(),
-    email:   document.getElementById('email').value.trim(),
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value.trim(),
-  };
-
-  try {
-    // Fire both emails simultaneously — faster than awaiting sequentially
-    await Promise.all([
-      // Template 1 → sends enquiry details TO YOU
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ENQUIRY_TID, params),
-      // Template 2 → sends confirmation auto-reply TO THE VISITOR
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_REPLY_TID,   params),
-    ]);
-
-    showToast('Message sent! Check your inbox for a confirmation.', 'success');
-    e.target.reset();
-  } catch (err) {
-    console.error('EmailJS error:', err);
-    showToast('Something went wrong. Please try again.', 'error');
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Send Message`;
-  }
-});
-
-// spin keyframe via style tag
-const style = document.createElement('style');
-style.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
-document.head.appendChild(style);
 </script>
+
 </body>
 </html>
