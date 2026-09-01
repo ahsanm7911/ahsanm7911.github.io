@@ -149,6 +149,55 @@
     }
   });
 
+  /* ── ENLARGE ───────────────────────────────────────────── */
+  /* The cards are ~380px wide; the detail in each plate is the whole point
+     of showing it. Native <dialog> gives us the focus trap, Esc and inert
+     background for free. If showModal is missing the anchor's own href
+     opens the image directly, so this stays purely additive. */
+  var shotDialog = document.getElementById('shot-dialog');
+  var shots = document.querySelectorAll('[data-shot]');
+
+  if (shotDialog && shots.length && typeof shotDialog.showModal === 'function') {
+    var shotImg = document.getElementById('shot-img');
+    var shotCap = document.getElementById('shot-caption');
+    var shotClose = document.getElementById('shot-close');
+    var opener = null;
+
+    shots.forEach(function (shot) {
+      shot.addEventListener('click', function (event) {
+        event.preventDefault();
+        var img = shot.querySelector('img');
+        opener = shot;
+        shotImg.src = shot.getAttribute('href');
+        shotImg.alt = img ? img.alt : '';
+        shotCap.textContent = shot.dataset.caption || '';
+        shotDialog.showModal();
+      });
+    });
+
+    shotClose.addEventListener('click', function () { shotDialog.close(); });
+
+    /* Anything outside the image itself closes — that covers both the real
+       backdrop and the dialog's own empty area around the plate. */
+    shotDialog.addEventListener('click', function (event) {
+      if (event.target === shotImg || event.target.closest('.shot-close')) return;
+      var box = shotImg.getBoundingClientRect();
+      var inside = event.clientX >= box.left && event.clientX <= box.right &&
+                   event.clientY >= box.top && event.clientY <= box.bottom;
+      if (!inside) shotDialog.close();
+    });
+
+    /* <dialog> restores focus itself, but that runs after this event and can
+       land on <body> when the dialog was opened programmatically. Re-assert on
+       the next frame so the card that opened it always gets focus back. */
+    shotDialog.addEventListener('close', function () {
+      if (!opener) return;
+      var last = opener;
+      opener = null;
+      window.requestAnimationFrame(function () { last.focus(); });
+    });
+  }
+
   /* ── REVEAL ────────────────────────────────────────────── */
   var targets = document.querySelectorAll('[data-reveal]');
 
