@@ -1,1047 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muhammad Ahsan — Custom Software for Small Businesses</title>
-  <meta name="description" content="I design and build focused software tools for non-technical business owners — clear process, plain language, and software that actually gets used."/>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Muhammad Ahsan — Custom Software for Small Businesses"/>
-  <meta property="og:description" content="Personalized software for non-technical business owners. Clear process, plain language, software that actually gets used."/>
-  <meta property="og:image" content="https://ahsanm7911.github.io/image.webp"/>
-  <meta property="og:url" content="https://ahsanm7911.github.io"/>
+  <title>Muhammad Ahsan — Websites, apps and automation for small businesses</title>
+  <meta name="description" content="I build websites, web apps, automations and AI assistants for business owners who don't speak tech. Plain language, fixed scope, software you'll actually use."/>
+  <link rel="canonical" href="https://ahsanm7911.github.io/"/>
+  <meta name="theme-color" content="#101B33"/>
+
+  <meta property="og:title" content="Muhammad Ahsan — Websites, apps and automation for small businesses"/>
+  <meta property="og:description" content="You run the business. Something else should run the busywork. Websites, web apps, automations and AI assistants, built in plain language."/>
+  <meta property="og:image" content="https://ahsanm7911.github.io/og-card.webp"/>
+  <meta property="og:url" content="https://ahsanm7911.github.io/"/>
   <meta property="og:type" content="website"/>
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Muhammad Ahsan — Custom Software for Small Businesses"/>
-  <meta name="twitter:description" content="Personalized software for non-technical business owners. Clear process, plain language, software that actually gets used."/>
-  <meta name="twitter:image" content="https://ahsanm7911.github.io/image.webp"/>
+  <meta name="twitter:title" content="Muhammad Ahsan — Websites, apps and automation for small businesses"/>
+  <meta name="twitter:description" content="You run the business. Something else should run the busywork."/>
+  <meta name="twitter:image" content="https://ahsanm7911.github.io/og-card.webp"/>
+  <meta name="twitter:image:alt" content="You run the business. Something else should run the busywork."/>
 
-  <!-- Fonts: single weight range of Inter -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23101B33'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23F5A524'/%3E%3C/svg%3E"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    /* ── RESET ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 
-    /* ── DESIGN TOKENS ── */
-    :root {
-      --white:           #FFFFFF;
-      --gray-bg:         #F4F5F8;
-      --text-primary:    #14171F;
-      --text-secondary:  #666b78;
-      --text-faint:      #9a9da6;
-      --accent:          #34409E;
-      --accent-tint:     #E8EAF6;
-      --border:          #e4e6eb;
-      --radius-badge:    999px;
-      --radius-btn:      8px;
-      --radius-card:     12px;
-      --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
+  <script>document.documentElement.classList.add('js');</script>
 
-    body {
-      font-family: var(--font);
-      background: var(--white);
-      color: var(--text-primary);
-      overflow-x: hidden;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Muhammad Ahsan",
+    "description": "Websites, web apps, automations and AI assistants for small business owners.",
+    "url": "https://ahsanm7911.github.io/",
+    "email": "ahsanm7911@gmail.com",
+    "telephone": "+44 7877 418015",
+    "priceRange": "$$",
+    "areaServed": "Worldwide",
+    "founder": {
+      "@type": "Person",
+      "name": "Muhammad Ahsan",
+      "jobTitle": "Software developer",
+      "sameAs": [
+        "https://github.com/ahsanm7911",
+        "https://www.linkedin.com/in/ahsanm7911/"
+      ]
     }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    /* ── BUTTONS ── */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      border: 2px solid var(--accent);
-      border-radius: var(--radius-btn);
-      padding: 12px 24px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      font-family: var(--font);
-      cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-    }
-    .btn-primary:hover  { opacity: 0.88; }
-    .btn-primary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-      border-radius: var(--radius-btn);
-      padding: 12px 24px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      font-family: var(--font);
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
-    }
-    .btn-outline:hover  { background: var(--accent-tint); }
-    .btn-outline:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-
-    .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      color: var(--accent);
-      border: 2px solid #fff;
-      border-radius: var(--radius-btn);
-      padding: 12px 28px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      font-family: var(--font);
-      cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-    }
-    .btn-white:hover { opacity: 0.9; }
-    .btn-white:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-
-    /* ── BADGE ── */
-    .badge {
-      display: inline-block;
-      background: var(--accent-tint);
-      color: var(--accent);
-      border: 1px solid rgba(52, 64, 158, 0.2);
-      border-radius: var(--radius-badge);
-      padding: 5px 14px;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    /* ── SECTIONS ── */
-    .section     { padding: 80px 0; }
-    .section-alt { background: var(--gray-bg); }
-
-    .section-header { margin-bottom: 44px; }
-    .section-header h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-top: 12px;
-      line-height: 1.2;
-    }
-    .section-header p {
-      color: var(--text-secondary);
-      margin-top: 10px;
-      max-width: 520px;
-      font-size: 0.95rem;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-    }
-    .nav-logo {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      text-decoration: none;
-    }
-    .nav-logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover        { color: var(--accent); }
-    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-    /* Mobile hamburger */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text-primary);
-      border-radius: 2px;
-      transition: opacity 0.2s;
-    }
-    .nav-hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      padding: 8px 0 16px;
-      border-top: 1px solid var(--border);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 11px 0;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--accent); }
-    .mobile-menu .btn-primary { margin-top: 10px; justify-content: center; }
-
-    /* ── HERO ── */
-    #hero { padding: 88px 0 72px; }
-    .hero-badge  { margin-bottom: 20px; }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.14;
-      max-width: 680px;
-      margin-bottom: 18px;
-    }
-    .hero-subhead {
-      font-size: 1.08rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 560px;
-      margin-bottom: 32px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .hero-trust {
-      font-size: 0.85rem;
-      color: var(--text-faint);
-    }
-
-    /* ── HOW IT WORKS ── */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .step { display: flex; flex-direction: column; gap: 14px; }
-    .step-num {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .step h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
-    .step p  { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
-
-    /* ── WHO THIS IS FOR ── */
-    .fit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-    .fit-col h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 18px;
-    }
-    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .fit-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--text-primary);
-    }
-    .fit-list.not-fit li { color: var(--text-secondary); }
-    .icon-check { flex-shrink: 0; margin-top: 1px; color: var(--accent); }
-    .icon-x     { flex-shrink: 0; margin-top: 1px; color: var(--text-faint); }
-
-    /* ── SELECTED WORK ── */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .work-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .work-tag {
-      display: inline-block;
-      background: var(--accent-tint);
-      color: var(--accent);
-      border-radius: var(--radius-btn);
-      padding: 3px 10px;
-      font-size: 0.73rem;
-      font-weight: 600;
-      align-self: flex-start;
-    }
-    .work-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .work-card p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .work-card-footer { margin-top: 6px; }
-    .work-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .work-link:hover { text-decoration: underline; }
-    .work-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-    .work-link-muted {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-faint);
-    }
-
-    /* ── VIDEO TESTIMONIALS ── */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .video-card {
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .video-thumb {
-      position: relative;
-      background: var(--gray-bg);
-      aspect-ratio: 9 / 16;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    /* When a real video or iframe is dropped in, it takes over the thumb area */
-    .video-thumb video,
-    .video-thumb iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-    .play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
-    .play-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-    /* Hide overlay while playing; reveal on hover so the user can pause */
-    .video-card.playing .play-btn { opacity: 0; }
-    .video-card.playing:hover .play-btn { opacity: 1; }
-    .video-caption { padding: 14px 16px; background: var(--white); }
-    .video-caption strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
-    .video-caption span  { font-size: 0.8rem; color: var(--text-faint); }
-
-    /* ── FINAL CTA ── */
-    #final-cta {
-      background: var(--accent);
-      padding: 80px 0;
-      text-align: center;
-      color: #fff;
-    }
-    #final-cta h2 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    #final-cta p {
-      font-size: 1rem;
-      opacity: 0.85;
-      max-width: 480px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-
-    /* ── BOOKING ── */
-    #booking { padding: 80px 0; }
-    .calendly-inline-widget {
-      min-width: 320px;
-      height: 700px;
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .calendly-fallback {
-      margin-top: 16px;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-    .calendly-fallback a { color: var(--accent); font-weight: 600; }
-    .calendly-fallback a:hover { text-decoration: underline; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .footer-name  { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
-    .footer-email { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
-    .footer-email a { color: var(--accent); }
-    .footer-email a:hover { text-decoration: underline; }
-    .footer-socials { display: flex; gap: 10px; }
-    .footer-socials a {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--gray-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: background 0.2s, color 0.2s;
-    }
-    .footer-socials a:hover { background: var(--accent-tint); color: var(--accent); }
-    .footer-socials a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .footer-copy { font-size: 0.8rem; color: var(--text-faint); }
-
-    /* ── FREE AUDIT SECTION ── */
-    .badge-outline {
-      background: transparent;
-      border-color: var(--accent);
-    }
-    .audit-card-wrap {
-      display: flex;
-      justify-content: center;
-    }
-    .audit-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 40px 44px;
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
-    }
-    .audit-card h2 {
-      font-size: clamp(1.15rem, 2.8vw, 1.45rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-top: 16px;
-      line-height: 1.3;
-    }
-    .audit-subtext {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-top: 10px;
-      margin-bottom: 24px;
-    }
-    .audit-field { margin-bottom: 12px; text-align: left; }
-    .audit-input {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-btn);
-      padding: 11px 14px;
-      font-size: 0.95rem;
-      font-family: var(--font);
-      color: var(--text-primary);
-      background: var(--white);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .audit-input:focus { border-color: var(--accent); }
-    .audit-input::placeholder { color: var(--text-faint); }
-    .audit-submit {
-      width: 100%;
-      justify-content: center;
-      margin-top: 4px;
-    }
-    .audit-consent {
-      font-size: 0.78rem;
-      color: var(--text-faint);
-      margin-top: 14px;
-    }
-    .audit-success {
-      padding: 16px 0 4px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .section { padding: 56px 0; }
-      #hero    { padding: 56px 0 48px; }
-
-      .steps-grid { grid-template-columns: 1fr; gap: 28px; }
-      .fit-grid   { grid-template-columns: 1fr; gap: 32px; }
-      .work-grid  { grid-template-columns: 1fr; }
-      .video-grid { grid-template-columns: 1fr; }
-
-      .nav-links    { display: none; }
-      .nav-cta-desk { display: none; }
-      .nav-hamburger { display: flex; }
-
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-socials { justify-content: center; }
-
-      .calendly-inline-widget { height: 580px; }
-      .audit-card { padding: 28px 20px; }
-    }
-
-    @media (min-width: 641px) {
-      .mobile-menu   { display: none !important; }
-      .nav-hamburger { display: none; }
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════ -->
-<nav aria-label="Main navigation">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Muhammad Ahsan</a>
+<a class="skip" href="#main">Skip to content</a>
 
-      <ul class="nav-links" role="list">
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Muhammad&nbsp;Ahsan</a>
+
+      <ul class="nav-links">
+        <li><a href="#build">What I build</a></li>
+        <li><a href="#process">How it works</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#booking">Contact</a></li>
+        <li><a href="#clients">Clients</a></li>
       </ul>
 
-      <a href="#booking" class="btn-primary nav-cta-desk" style="padding:10px 20px;font-size:0.88rem;">
-        Book a call
-      </a>
+      <a href="#contact" class="btn btn--amber btn--sm nav-cta">Tell me your problem</a>
 
-      <button class="nav-hamburger" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
 
-    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <nav class="menu" id="menu" aria-label="Mobile">
+      <a href="#build">What I build</a>
+      <a href="#process">How it works</a>
       <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#booking">Contact</a>
-      <a href="#booking" class="btn-primary">Book a call</a>
-    </div>
+      <a href="#clients">Clients</a>
+      <a href="#contact" class="btn btn--amber">Tell me your problem</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section id="hero" class="hero">
-  <div class="container">
-    <div class="hero-badge">
-      <span class="badge">For non-technical business owners</span>
-    </div>
-    <h1>Custom software, without the tech overwhelm</h1>
-    <p class="hero-subhead">
-      I design and build focused tools for non-technical teams — clear process, plain language, and software that actually gets used.
+<main id="main">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="sign">For business owners, not developers</p>
+
+    <h1 class="display">You run the business. Something else should run the <span class="mark">busywork.</span></h1>
+
+    <p class="lede">
+      I build websites, web apps, automations and AI assistants for people who
+      don't speak tech — and I explain every bit of it in plain English.
     </p>
-    <div class="hero-actions">
-      <a href="#booking" class="btn-primary">Book a free 20-min call</a>
-      <a href="#process" class="btn-outline">See how it works</a>
+
+    <p class="picker-label">Which one is you?</p>
+
+    <div class="picker" role="group" aria-label="Pick the problem that sounds most like yours">
+      <button type="button" class="pick" aria-pressed="false"
+        data-topic="No website yet"
+        data-fill="I don't have a website for my business yet. I'd like people to be able to find me and get in touch online.">
+        <span>I don't have a website yet</span>
+        <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="pick" aria-pressed="false"
+        data-topic="Repetitive data entry"
+        data-fill="I spend a lot of time retyping the same information between spreadsheets and other tools every day. I'd like that to happen on its own.">
+        <span>I retype the same information every day</span>
+        <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="pick" aria-pressed="false"
+        data-topic="Answering the same questions"
+        data-fill="I answer the same handful of customer questions over and over. I'd like something that can handle the routine ones so I only deal with the real ones.">
+        <span>I answer the same questions all day</span>
+        <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button type="button" class="pick" aria-pressed="false"
+        data-topic="Not sure yet"
+        data-fill="I'm not sure exactly what I need. Things just feel slower than they should be, and I'd like help working out what's worth fixing first.">
+        <span>I'm not sure — it just feels slow</span>
+        <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
+
     <p class="hero-trust">
-      Trusted by small businesses who need software built around them, not the other way around.
+      Working with tutors, marketplaces and small teams — including Donita and
+      Benjamin, who you can hear from further down this page.
     </p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     HOW IT WORKS
-══════════════════════════════════════ -->
-<section id="process" class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Process</span>
-      <h2>How it works</h2>
+<!-- ═══════════ WHAT I BUILD ═══════════ -->
+<section class="band band--ink" id="build">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <p class="sign">What I build</p>
+      <h2 class="display">Four things. Described by what they do for you.</h2>
     </div>
-    <div class="steps-grid">
 
-      <div class="step">
-        <div class="step-num" aria-hidden="true">1</div>
-        <h3>Tell me the problem</h3>
-        <p>A short call to understand the real bottleneck.</p>
+    <div class="rows">
+      <div class="row" data-reveal>
+        <p class="row-label">Websites</p>
+        <div>
+          <h3>People can find you, and book you, at two in the morning.</h3>
+          <p>A site that answers the questions you keep answering by phone, and turns a stranger into an enquiry while you're asleep.</p>
+        </div>
       </div>
 
-      <div class="step">
-        <div class="step-num" aria-hidden="true">2</div>
-        <h3>I design and build it</h3>
-        <p>Regular check-ins, zero jargon.</p>
+      <div class="row" data-reveal>
+        <p class="row-label">Web apps</p>
+        <div>
+          <h3>The spreadsheet becomes something your team can actually use.</h3>
+          <p>Bookings, jobs, stock, students, invoices — whatever you're tracking, shaped around how you already work instead of the other way around.</p>
+        </div>
       </div>
 
-      <div class="step">
-        <div class="step-num" aria-hidden="true">3</div>
+      <div class="row" data-reveal>
+        <p class="row-label">Automations</p>
+        <div>
+          <h3>The copy-and-paste part of your day stops happening.</h3>
+          <p>Information moves between your tools by itself. No more retyping the same order into three places and hoping you got it right.</p>
+        </div>
+      </div>
+
+      <div class="row" data-reveal>
+        <p class="row-label">AI assistants</p>
+        <div>
+          <h3>The routine questions get answered without you.</h3>
+          <p>An assistant that knows your business, handles the twenty easy messages, and hands you the two that need a human.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <p class="sign">How it works</p>
+      <h2 class="display">Three steps, and you always know which one you're in.</h2>
+    </div>
+
+    <ol class="steps">
+      <li class="step" data-reveal>
+        <p class="step-n">01</p>
+        <h3>You tell me the problem</h3>
+        <p class="step-desc">We talk about your day, not about technology. By the end I'll tell you plainly whether software is even the right answer.</p>
+        <dl class="step-facts">
+          <div><dt>What you do</dt><dd>Talk for 20 minutes</dd></div>
+          <div><dt>How long</dt><dd>One call, this week</dd></div>
+        </dl>
+      </li>
+
+      <li class="step" data-reveal>
+        <p class="step-n">02</p>
+        <h3>I build it and show you as I go</h3>
+        <p class="step-desc">You get a fixed price and a clear finish line before anything starts. Then regular check-ins where you see the real thing, not a diagram.</p>
+        <dl class="step-facts">
+          <div><dt>What you do</dt><dd>Look and say yes or no</dd></div>
+          <div><dt>How long</dt><dd>Usually 2–6 weeks</dd></div>
+        </dl>
+      </li>
+
+      <li class="step" data-reveal>
+        <p class="step-n">03</p>
         <h3>You start using it</h3>
-        <p>Trained, supported, ready to go.</p>
-      </div>
+        <p class="step-desc">I walk you and your team through it until it's boring, then stay reachable. If something breaks, you message me — not a ticket queue.</p>
+        <dl class="step-facts">
+          <div><dt>What you do</dt><dd>Use it</dd></div>
+          <div><dt>How long</dt><dd>Trained in an afternoon</dd></div>
+        </dl>
+      </li>
+    </ol>
+  </div>
+</section>
 
+<!-- ═══════════ WORK ═══════════ -->
+<section class="band band--paper2" id="work">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <p class="sign">Work</p>
+      <h2 class="display">What changed for the business.</h2>
+      <p class="lede">Not which framework was used. That part is my problem, not yours.</p>
+    </div>
+
+    <!--
+      ─────────────────────────────────────────────────────────────
+      TO ADD A PROJECT: copy this block and fill in the five slots.
+      Drop the <a class="card-link"> line if there's nothing to link to.
+      ─────────────────────────────────────────────────────────────
+      <article class="card" data-reveal>
+        <span class="tag">INDUSTRY</span>
+        <h3>OUTCOME IN ONE LINE</h3>
+        <dl class="ba">
+          <div><dt>Before</dt><dd>WHAT THEIR DAY LOOKED LIKE</dd></div>
+          <div class="after"><dt>After</dt><dd>WHAT IT LOOKS LIKE NOW</dd></div>
+        </dl>
+        <a class="card-link" href="URL" target="_blank" rel="noopener noreferrer">View the project →</a>
+      </article>
+      ─────────────────────────────────────────────────────────────
+    -->
+
+    <div class="cards">
+      <article class="card" data-reveal>
+        <span class="tag">Food &amp; marketplace</span>
+        <h3>Home cooks got a business, not just a listing</h3>
+        <dl class="ba">
+          <div><dt>Before</dt><dd>Orders, prices and delivery arranged one by one over messages.</dd></div>
+          <div class="after"><dt>After</dt><dd>One app handling bidding, payments and delivery for every chef on it.</dd></div>
+        </dl>
+        <a class="card-link" href="https://github.com/ahsanm7911/homeplate" target="_blank" rel="noopener noreferrer">View HomePlate →</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="tag">Tutoring &amp; education</span>
+        <h3>Weekly attendance went from hours to minutes</h3>
+        <dl class="ba">
+          <div><dt>Before</dt><dd>A spreadsheet rebuilt by hand every week, and chased by email.</dd></div>
+          <div class="after"><dt>After</dt><dd>A few clicks, and the register is done and shareable.</dd></div>
+        </dl>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="tag">Data &amp; reporting</span>
+        <h3>Numbers that non-finance staff could read</h3>
+        <dl class="ba">
+          <div><dt>Before</dt><dd>Raw stock data nobody outside finance could interpret.</dd></div>
+          <div class="after"><dt>After</dt><dd>A dashboard the whole team reads without asking what it means.</dd></div>
+        </dl>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     WHO THIS IS FOR
-══════════════════════════════════════ -->
-<section id="fit" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Fit</span>
-      <h2>Who this is for</h2>
+<!-- ═══════════ CLIENTS ═══════════ -->
+<section class="band" id="clients">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <p class="sign">Clients</p>
+      <h2 class="display">In their words, not mine.</h2>
+      <p class="lede">Short clips from real people who hired me. Sound on.</p>
     </div>
-    <div class="fit-grid">
 
-      <div class="fit-col">
-        <h3>A good fit if you...</h3>
-        <ul class="fit-list">
+    <div class="clips">
+      <figure class="clip" data-reveal>
+        <div class="clip-frame">
+          <video src="./client_review001.mp4" poster="./client_review001_thumb.jpg" preload="none" playsinline></video>
+          <button type="button" class="play" aria-label="Play Donita's testimonial">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        <figcaption class="clip-meta">
+          <span><strong>Donita</strong><span>English language tutor</span></span>
+          <span class="clip-dur">1:11</span>
+        </figcaption>
+      </figure>
+
+      <figure class="clip" data-reveal>
+        <div class="clip-frame">
+          <video src="./client_review002.mp4" poster="./client_review002_thumb.jpg" preload="none" playsinline></video>
+          <button type="button" class="play" aria-label="Play Benjamin Owen's testimonial">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        <figcaption class="clip-meta">
+          <span><strong>Benjamin Owen</strong><span>Tutor &amp; YouTuber</span></span>
+          <span class="clip-dur">0:29</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FIT ═══════════ -->
+<section class="band band--paper2" id="fit">
+  <div class="wrap">
+    <div class="band-head" data-reveal>
+      <p class="sign">Honest bit</p>
+      <h2 class="display">I'm not right for everyone.</h2>
+    </div>
+
+    <div class="fit">
+      <div class="fit-yes" data-reveal>
+        <h3>Get in touch if you…</h3>
+        <ul>
           <li>
-            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>Are losing hours to spreadsheets or tools that don't fit your workflow</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Lose hours every week to spreadsheets, messages or tools that don't fit how you work</span>
           </li>
           <li>
-            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>Want one person who understands the business, not a ticket queue</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Want one person who understands your business, not an account manager and a ticket queue</span>
           </li>
           <li>
-            <svg class="icon-check" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>Want software built around your workflow, not the other way around</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Have a physical business you'd like to take online and don't know where to start</span>
           </li>
         </ul>
       </div>
 
-      <div class="fit-col">
-        <h3>Not a fit if you...</h3>
-        <ul class="fit-list not-fit">
+      <div class="fit-no" data-reveal>
+        <h3>Probably not if you…</h3>
+        <ul>
           <li>
-            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Need an enterprise-scale platform or a full team</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Need an enterprise platform and a full delivery team behind it</span>
           </li>
           <li>
-            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Are shopping for the cheapest marketplace freelancer</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Are looking for the cheapest bid on a freelance marketplace</span>
           </li>
           <li>
-            <svg class="icon-x" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-            <span>Off-the-shelf software already solves the problem well</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Already have off-the-shelf software that solves the problem well — I'll tell you if you do</span>
           </li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SELECTED WORK
-══════════════════════════════════════ -->
-<section id="work" class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Work</span>
-      <h2>Selected work</h2>
-      <p>Outcome-first — what changed for the business, not which framework was used.</p>
-    </div>
-    <div class="work-grid">
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
 
-      <!-- HomePlate -->
-      <div class="work-card">
-        <span class="work-tag">Food and marketplace</span>
-        <h3>HomePlate</h3>
-        <p>A marketplace where home chefs run their own food business — bidding, payments, and delivery in one app.</p>
-        <div class="work-card-footer">
-          <a href="https://github.com/ahsanm7911/homeplate" class="work-link" target="_blank" rel="noopener noreferrer">
-            View on GitHub →
-          </a>
+      <div class="contact-aside" data-reveal>
+        <p class="sign">Contact</p>
+        <h2 class="display">Tell me what's slowing you down.</h2>
+        <p class="lede">You don't need to know what to build. Describing the annoying part of your week is enough to start.</p>
+
+        <ul class="reassure">
+          <li>
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>I read every message myself and reply within 48 hours.</span>
+          </li>
+          <li>
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>You get a straight answer, including "you don't need me for this".</span>
+          </li>
+          <li>
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>No sales sequence, no newsletter, no sharing your details.</span>
+          </li>
+        </ul>
+
+        <div class="who">
+          <img src="portrait.webp" alt="Muhammad Ahsan" width="72" height="72" loading="lazy" decoding="async">
+          <p><strong>You'll be talking to me.</strong><br>Not a sales team, not an account manager.</p>
         </div>
       </div>
 
-      <!-- Attendance Manager -->
-      <div class="work-card">
-        <span class="work-tag">Tutoring and education</span>
-        <h3>Attendance manager</h3>
-        <p>Replaced hours of weekly spreadsheet attendance tracking with a few clicks.</p>
-        <div class="work-card-footer">
-          <span class="work-link-muted">Case study coming soon</span>
-        </div>
-      </div>
+      <div class="panel" data-reveal>
+        <form id="lead-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="3bee355d-f806-4885-9d13-7c5a4fc903a9">
+          <input type="hidden" name="subject" value="New enquiry from ahsanm7911.github.io">
+          <input type="hidden" name="from_name" value="Muhammad Ahsan — website">
+          <input type="hidden" name="topic" id="lead-topic" value="Not specified">
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
 
-      <!-- Financial Dashboard -->
-      <div class="work-card">
-        <span class="work-tag">Data and reporting</span>
-        <h3>Financial dashboard</h3>
-        <p>Turned raw stock data into a dashboard non-finance staff could actually read.</p>
-        <div class="work-card-footer">
-          <span class="work-link-muted">Case study coming soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     FREE AUDIT — LEAD CAPTURE
-══════════════════════════════════════ -->
-<section id="audit" class="section section-alt">
-  <div class="container">
-    <div class="audit-card-wrap">
-      <div class="audit-card">
-        <span class="badge badge-outline">Free software audit</span>
-        <h2>Not ready to book a call? Get a free audit instead.</h2>
-        <p class="audit-subtext">Tell me what's slowing your business down. I'll reply within 48 hours with three concrete ways software could fix it — no pitch, no obligation.</p>
-
-        <form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="de233401-8f25-41c4-b0d1-f6193334192c">
-          <input type="hidden" name="subject" value="New free audit request from website">
-          <input type="hidden" name="from_name" value="Ahsan Muhammad Portfolio Site">
-          <input type="checkbox" name="botcheck" style="display:none">
-
-          <div class="audit-field">
-            <input class="audit-input" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+          <div class="field">
+            <label for="lead-name">Your name</label>
+            <input id="lead-name" type="text" name="name" placeholder="Jane Okafor" autocomplete="name" required>
           </div>
 
-          <div class="audit-field">
-            <input class="audit-input" type="text" name="message" placeholder="What's slowing you down? (optional)" autocomplete="off">
+          <div class="field">
+            <label for="lead-email">Email</label>
+            <input id="lead-email" type="email" name="email" placeholder="jane@yourbusiness.com" autocomplete="email" required>
           </div>
 
-          <button class="btn-primary audit-submit" type="submit">Send me my free audit</button>
+          <div class="field">
+            <label for="lead-phone">Phone or WhatsApp</label>
+            <input id="lead-phone" type="tel" name="phone" placeholder="+44 7700 900123" autocomplete="tel" required>
+            <span class="hint">WhatsApp is fine. I won't ring you out of the blue.</span>
+          </div>
 
-          <p class="audit-consent">One personal reply, never a mass newsletter. Unsubscribe anytime.</p>
+          <div class="field">
+            <label for="lead-message">What's the problem?</label>
+            <textarea id="lead-message" name="message" required
+              placeholder="Where does most of your time go? What do you wish just happened by itself? Is there a business you want to take online?"></textarea>
+            <span class="hint">Two sentences is plenty. Any of the questions above works as a starting point.</span>
+          </div>
+
+          <button class="btn btn--amber btn--block" type="submit">Send it over</button>
+
+          <p class="consent">Your details go straight to my inbox and nowhere else.</p>
+
+          <p class="form-msg form-msg--error" id="lead-error" role="alert" hidden></p>
         </form>
 
-        <div id="audit-success" class="audit-success" hidden>
-          Thanks — I'll reply within 48 hours.
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     VIDEO TESTIMONIALS
-══════════════════════════════════════ -->
-<section id="testimonials" class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Hear from clients</h2>
-      <p>Short clips, real businesses.</p>
-    </div>
-    <div class="video-grid">
-
-      <!--
-        VIDEO CARD 1 — PLACEHOLDER
-        To add a real video, replace the .video-thumb div contents with one of:
-          Self-hosted: <video src="client1.mp4" controls poster="client1-thumb.jpg"></video>
-          YouTube:     <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Client name testimonial"></iframe>
-        The .video-thumb wrapper and .video-caption below can stay as-is.
-      -->
-      <div class="video-card">
-        <div class="video-thumb">
-          <video src="./client_review001.mp4" poster="./client_review001_thumb.jpg" playsinline></video>
-          <button class="play-btn" aria-label="Play video">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
-        <div class="video-caption">
-          <strong>Donita</strong>
-          <span>English Language Tutor</span>
+        <div class="sent" id="lead-sent" role="status" aria-live="polite" tabindex="-1" hidden>
+          <h3>Got it — thank you.</h3>
+          <p>I'll read this properly and reply within 48 hours. If it's urgent, message me on WhatsApp at +44 7877 418015.</p>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-thumb">
-          <video src="./client_review002.mp4" playsinline></video>
-          <button class="play-btn" aria-label="Play video">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
-        <div class="video-caption">
-          <strong>Benjamin Owen</strong>
-          <span>Tutor & Youtuber</span>
-        </div>
-      </div>
-
-      <!--
-        VIDEO CARD 2 — PLACEHOLDER
-        Replace .video-thumb div contents with a <video> or <iframe> as above.
-      -->
-      
-
-      <!--
-        VIDEO CARD 3 — PLACEHOLDER
-        Replace .video-thumb div contents with a <video> or <iframe> as above.
-      -->
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     FINAL CTA
-══════════════════════════════════════ -->
-<section id="final-cta" aria-labelledby="cta-heading">
-  <div class="container">
-    <h2 id="cta-heading">Ready to stop fighting your tools?</h2>
-    <p>A free 20-minute call. No pitch, just a conversation about what's slowing you down.</p>
-    <a href="#booking" class="btn-white">Book a free call</a>
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="band band--ink final">
+  <div class="wrap">
+    <h2 class="display">Stop working around your tools.</h2>
+    <p class="lede">One short conversation. No pitch, no jargon, no obligation.</p>
+    <a href="#contact" class="btn btn--amber">Tell me your problem</a>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     BOOKING — CALENDLY
-══════════════════════════════════════ -->
-<section id="booking" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Book a call</span>
-      <h2>Schedule a free 20-minute call</h2>
-      <p>No pitch, no jargon. A short conversation about your business and what's slowing you down.</p>
-    </div>
+</main>
 
-    <!-- Calendly inline widget -->
-    <div class="calendly-inline-widget" data-url="https://calendly.com/ahsanm7911"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-    <!-- Shown only when JavaScript is disabled -->
-    <noscript>
-      <p class="calendly-fallback">
-        JavaScript is required to load the booking calendar.
-        <a href="https://calendly.com/ahsanm7911">Open Calendly directly →</a>
-      </p>
-    </noscript>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-inner">
       <div>
-        <div class="footer-name">Muhammad Ahsan</div>
-        <div class="footer-email">
+        <p class="foot-name">Muhammad Ahsan</p>
+        <div class="foot-contact">
           <a href="mailto:ahsanm7911@gmail.com">ahsanm7911@gmail.com</a>
-          &nbsp;·&nbsp;
-          <a href="https://wa.me/447877418015" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary);display:inline-flex;align-items:center;gap:4px;">
+          <a href="https://wa.me/447877418015" target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             +44 7877 418015
           </a>
         </div>
       </div>
 
-      <div class="footer-socials">
-        <a href="https://github.com/ahsanm7911" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Ahsan on GitHub">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
+      <div class="socials">
+        <a href="https://github.com/ahsanm7911" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/ahsanm7911/" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Ahsan on LinkedIn">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+        <a href="https://www.linkedin.com/in/ahsanm7911/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
 
-      <p class="footer-copy">© 2026 Muhammad Ahsan. All rights reserved.</p>
-
+      <p class="foot-copy">© 2026 Muhammad Ahsan.</p>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════ -->
-<script>
-  // Mobile menu toggle
-  const menuToggle  = document.getElementById('menu-toggle');
-  const mobileMenu  = document.getElementById('mobile-menu');
-
-  menuToggle.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Video play/pause with overlay button
-  const PLAY_ICON  = `<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`;
-  const PAUSE_ICON = `<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
-
-  document.querySelectorAll('.video-card').forEach(card => {
-    const video = card.querySelector('video');
-    const btn   = card.querySelector('.play-btn');
-    if (!video || !btn) return;
-
-    // Click overlay button → toggle play/pause
-    btn.addEventListener('click', () => {
-      // Pause any other playing videos first
-      document.querySelectorAll('.video-card video').forEach(v => {
-        if (v !== video && !v.paused) v.pause();
-      });
-      video.paused ? video.play() : video.pause();
-    });
-
-    // Click directly on video → same toggle
-    video.addEventListener('click', () => btn.click());
-
-    video.addEventListener('play', () => {
-      card.classList.add('playing');
-      btn.setAttribute('aria-label', 'Pause video');
-      btn.innerHTML = PAUSE_ICON;
-    });
-
-    video.addEventListener('pause', () => {
-      card.classList.remove('playing');
-      btn.setAttribute('aria-label', 'Play video');
-      btn.innerHTML = PLAY_ICON;
-    });
-
-    video.addEventListener('ended', () => {
-      card.classList.remove('playing');
-      btn.setAttribute('aria-label', 'Play video');
-      btn.innerHTML = PLAY_ICON;
-    });
-  });
-</script>
-
-<!-- Web3Forms audit submission -->
-<script>
-  (function () {
-    var form    = document.getElementById('audit-form');
-    var success = document.getElementById('audit-success');
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled    = true;
-      btn.textContent = 'Sending…';
-
-      try {
-        var res  = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body:   new FormData(form)
-        });
-        var data = await res.json();
-        if (data.success) {
-          form.hidden    = true;
-          success.hidden = false;
-        } else {
-          btn.disabled    = false;
-          btn.textContent = 'Send me my free audit';
-        }
-      } catch (_) {
-        btn.disabled    = false;
-        btn.textContent = 'Send me my free audit';
-      }
-    });
-  })();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
